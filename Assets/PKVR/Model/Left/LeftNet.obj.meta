@@ -5,12 +5,17 @@ ModelImporter:
   fileIDToRecycleName:
     100000: LeftNet
     100002: //RootNode
+    100004: Plane
     400000: LeftNet
     400002: //RootNode
+    400004: Plane
     2100000: Default_Prototype
     2300000: LeftNet
+    2300002: Plane
     3300000: LeftNet
+    3300002: Plane
     4300000: LeftNet
+    4300002: Plane
   externalObjects: {}
   materials:
     importMaterials: 1
