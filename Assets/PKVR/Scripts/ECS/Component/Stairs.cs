@@ -9,7 +9,8 @@ namespace SuperPK
 	public class Stairs : MonoBehaviour
 	{
 		public GameObject Supporter;
-		public int OneSideWidth;
-		public int StairsCount;
+		public float ScaleX;
+		public float OneSideWidth;
+		public float StairsCount;
 	}
 }
