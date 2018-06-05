@@ -1,0 +1,20 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+#define ThreadBlockSize 256
+
+struct AudienceData 
+{
+	float3 Position;
+	float2x2 Rotation;
+};
+
+RWStructuredBuffer<AudienceData> AudienceDataBuffer;
+
+[numthreads(ThreadBlockSize,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	// TODO: insert actual code here!
+
+	Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+}

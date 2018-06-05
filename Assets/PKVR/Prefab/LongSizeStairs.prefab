@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4571507754279744}
   - component: {fileID: 33750314405912448}
   - component: {fileID: 23288219257393532}
-  - component: {fileID: 64836691009217600}
   m_Layer: 0
   m_Name: Stairs_1
   m_TagString: Untagged
@@ -39,7 +38,6 @@ GameObject:
   - component: {fileID: 4365041636481606}
   - component: {fileID: 33525143830741874}
   - component: {fileID: 23068112753029860}
-  - component: {fileID: 64868722078433276}
   m_Layer: 0
   m_Name: Stairs_0
   m_TagString: Untagged
@@ -104,7 +102,7 @@ Transform:
   - {fileID: 4571507754279744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!23 &23068112753029860
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -189,34 +187,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454964718015524}
   m_Mesh: {fileID: 4300002, guid: 5539126e028a8a540bd1c22427d974d9, type: 3}
---- !u!64 &64836691009217600
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454964718015524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 5539126e028a8a540bd1c22427d974d9, type: 3}
---- !u!64 &64868722078433276
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640604458861778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 5539126e028a8a540bd1c22427d974d9, type: 3}
 --- !u!114 &114706788928362176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78074356fdef2d9478670e626233269b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Supporter: {fileID: 1223400727027702, guid: c6978c93345ed574e99ee7201053cc95, type: 2}
+  Supporter: {fileID: 1364146048852760, guid: 8b241d045587db9479f0474d0af76e4a, type: 2}
+  SupporterMesh: {fileID: 4300000, guid: 97cd899cd9369b2468f25810d390aed0, type: 3}
+  SupporterMaterial: {fileID: 2100000, guid: 0e6fe962f7cee4ffea0666e217efeb3a, type: 2}
   ScaleX: 90
   OneSideWidth: 1
   StairsCount: 7
