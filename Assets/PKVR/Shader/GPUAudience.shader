@@ -6,8 +6,12 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" "IgnoreProjector"="True" "RenderType"="Transparent"}
-		LOD 100
+		Tags
+        {
+            "Queue"="Transparent"
+            "IgnoreProjector"="True"
+            "RenderType"="Transparent"
+        }		
 		Cull Off
 		Lighting Off
 		ZWrite On
@@ -42,34 +46,39 @@
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
-			StructuredBuffer<AudienceData> AudienceDataBuffer;
-			float3 AudienceMeshScale;
+            StructuredBuffer<AudienceData> _AudienceDataBuffer;
+            float3 _AudienceMeshScale;
 
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
-			float4 _MainTex_TexelSize;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            float4 _MainTex_TexelSize; 
+
+            v2f vert (appdata_t v, uint instanceID : SV_InstanceID)
+            {
+                v2f o;
+                UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+
+                // v.vertex.y += ((_MainTex_TexelSize.w/100)/2);
+                // float2x2 rotationMatrix = _AudienceDataBuffer[instanceID].Rotation;
+                // v.vertex.yz = mul(rotationMatrix, v.vertex.yz);
+                // v.vertex.y -= ((_MainTex_TexelSize.w/100)/2);
+
+                float4x4 matrix_ = (float4x4)0;
+                matrix_._11_22_33_44 = float4(_AudienceMeshScale.xyz, 1.0);
+                matrix_._14_24_34 += _AudienceDataBuffer[instanceID].Position;
+                v.vertex = mul(matrix_, v.vertex);
+
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
+                return o;
+            }
 			
-			v2f vert (appdata_t v, uint instanceID: SV_InstanceID)
-			{
-				v2f o;
-				UNITY_SETUP_INSTANCE_ID(V);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-
-				float4x4 matrix_ = (float4x4)0;
-				matrix_._11_22_33_44 = float4(AudienceMeshScale.xyz, 1.0);
-				matrix_._14_24_34 += AudienceDataBuffer[instanceID].Position;
-				v.vertex = mul(matrix_, v.vertex);
-
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
-				return o;
-			}
-			
-			fixed4 frag (v2f i) : SV_Target
-			{
-				fixed4 col = tex2D(_MainTex, i.texcoord);
-				return col;
-			}
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 col = tex2D(_MainTex, i.texcoord);
+                return col;
+            }
 			ENDCG
 		}
 	}

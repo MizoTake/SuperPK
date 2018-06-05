@@ -81,8 +81,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502869211355004}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: 0, z: -45}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4421112276347718}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Supporter: {fileID: 1364146048852760, guid: 8b241d045587db9479f0474d0af76e4a, type: 2}
   SupporterMesh: {fileID: 4300000, guid: 97cd899cd9369b2468f25810d390aed0, type: 3}
-  SupporterMaterial: {fileID: 2100000, guid: 0e6fe962f7cee4ffea0666e217efeb3a, type: 2}
+  SupporterMaterial: {fileID: 2100000, guid: f1755802f68b37440900ba55fabafcc7, type: 2}
   ScaleX: 60
   OneSideWidth: 1
   StairsCount: 7
