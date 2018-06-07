@@ -586,6 +586,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: ScaleX
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: StairsCount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71411690d5a8fed48aca824cb96c340e, type: 2}
   m_IsPrefabParent: 0
@@ -632,6 +642,16 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: ScaleX
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: StairsCount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0a77f235e077249b8e962b62441021, type: 2}
@@ -899,6 +919,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: ScaleX
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: StairsCount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0a77f235e077249b8e962b62441021, type: 2}
   m_IsPrefabParent: 0
@@ -951,6 +981,16 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: ScaleX
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: StairsCount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71411690d5a8fed48aca824cb96c340e, type: 2}

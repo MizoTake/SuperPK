@@ -59,18 +59,23 @@ namespace SuperPK
 						var pos = seat.transform.forward * (indexJ * 1.85f) + Vector3.up * indexJ * 1.5f;
 						if (pos.x == 0.0f)
 						{
-							pos += Vector3.right * ((seatPos.x - (scaleX / 2.0f)) + i);
+							pos += Vector3.right * ((seatPos.x - (scaleX)) + i * 2.0f);
 						}
 						else
 						{
-							pos += Vector3.forward * ((-seatPos.z - (scaleX / 2.0f)) + i);
+							pos += Vector3.forward * ((-seatPos.z - (scaleX)) + i * 2.0f);
 						}
 						audienceData[cnt * elementCnt].Position = seatPos + pos;
 						float sin = Mathf.Sin (90);
 						float cos = Mathf.Cos (90);
-						// var matrix = new float3x3 (m00: 1.0f, m01: cos, m02: sin, m10: 0.0f, m11: cos, m12: -sin, m20: -sin, m21 : sin, m22 : cos);
-						var matrix = new float3x3 (m00: 1.0f, m01: 0.0f, m02: 0.0f, m10: 0.0f, m11: cos, m12: -sin, m20 : 0.0f, m21 : sin, m22 : cos);
-						audienceData[cnt * elementCnt].Rotation = matrix;
+						var rotX = new float3x3 (m00: 1.0f, m01: 0.0f, m02: 0.0f, m10: 0.0f, m11: cos, m12: -sin, m20 : 0.0f, m21 : sin, m22 : cos);
+						sin = Mathf.Sin (seat.transform.rotation.y);
+						cos = Mathf.Cos (seat.transform.rotation.y);
+						var rotY = new float3x3 (m00: cos, m01: 1.0f, m02: sin, m10: 0.0f, m11: 0.0f, m12: 0.0f, m20: -sin, m21 : 0.0f, m22 : cos);
+						sin = Mathf.Sin (0.0f);
+						cos = Mathf.Cos (0.0f);
+						var rotZ = new float3x3 (m00: cos, m01: -sin, m02 : 0.0f, m10 : sin, m11 : cos, m12 : 0.0f, m20 : 0.0f, m21 : 0.0f, m22 : 0.0f);
+						audienceData[cnt * elementCnt].Rotation = math.mul (rotX, rotY);
 						cnt += 1;
 						// Debug.Log (cnt * elementCnt + " " + audienceData[cnt * elementCnt].Position);
 					}
