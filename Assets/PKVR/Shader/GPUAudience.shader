@@ -29,7 +29,7 @@
 			struct AudienceData
 			{
 				float3 Position;
-				float2x2 Rotation;
+				float3x3 Rotation;
 			};
 
 			struct appdata_t
@@ -60,8 +60,8 @@
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
                 // v.vertex.y += ((_MainTex_TexelSize.w/100)/2);
-                // float2x2 rotationMatrix = _AudienceDataBuffer[instanceID].Rotation;
-                // v.vertex.yz = mul(rotationMatrix, v.vertex.yz);
+                float3x3 rotationMatrix = _AudienceDataBuffer[instanceID].Rotation;
+                v.vertex.xyz = mul(rotationMatrix, v.vertex.xyz);
                 // v.vertex.y -= ((_MainTex_TexelSize.w/100)/2);
 
                 float4x4 matrix_ = (float4x4)0;

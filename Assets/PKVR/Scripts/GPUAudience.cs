@@ -2,32 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace SuperPK
 {
 	public class GPUAudience : MonoBehaviour
 	{
-		public struct Matrix2x2
-		{
-			public float m00;
-			public float m11;
-			public float m01;
-			public float m10;
-			/// <summary>
-			/// 単位行列
-			/// </summary>
-			public static Matrix2x2 identity
-			{
-				get
-				{
-					var m = new Matrix2x2 ();
-					m.m00 = m.m11 = 1f;
-					m.m01 = m.m10 = 0f;
-					return m;
-				}
-			}
-		}
 
 		struct AudienceData
 		{
@@ -38,7 +19,7 @@ namespace SuperPK
 			/// <summary>
 			/// 回転
 			/// </summary>
-			public Matrix2x2 Rotation;
+			public float3x3 Rotation;
 		}
 
 		[SerializeField] Mesh mesh;
@@ -85,7 +66,10 @@ namespace SuperPK
 							pos += Vector3.forward * ((-seatPos.z - (scaleX / 2.0f)) + i);
 						}
 						audienceData[cnt * elementCnt].Position = seatPos + pos;
-						// audienceData[cnt * elementCnt].Rotation = Matrix2x2.identity;
+						float sin = Mathf.Sin (90);
+						float cos = Mathf.Cos (90);
+						var matrix = new float3x3 (m00: 1.0f, m01: 1.0f + cos, m02: sin, m10: 0.0f, m11: cos, m12: -sin, m20: -sin, m21 : sin, m22 : cos);
+						audienceData[cnt * elementCnt].Rotation = matrix;
 						cnt += 1;
 						// Debug.Log (cnt * elementCnt + " " + audienceData[cnt * elementCnt].Position);
 					}

@@ -1,0 +1,19 @@
+﻿#pragma kernel CSMain
+
+#define ThreadBlockSize 256
+
+struct AudienceData
+{
+    float3 Position;
+    float2x2 Rotation;
+};
+
+RWStructuredBuffer<AudienceData> _AudienceDataBuffer;
+
+[numthreads(ThreadBlockSize,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	const unsigned int inde = id.x;
+
+	
+}
