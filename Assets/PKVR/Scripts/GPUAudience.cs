@@ -68,7 +68,8 @@ namespace SuperPK
 						audienceData[cnt * elementCnt].Position = seatPos + pos;
 						float sin = Mathf.Sin (90);
 						float cos = Mathf.Cos (90);
-						var matrix = new float3x3 (m00: 1.0f, m01: 1.0f + cos, m02: sin, m10: 0.0f, m11: cos, m12: -sin, m20: -sin, m21 : sin, m22 : cos);
+						// var matrix = new float3x3 (m00: 1.0f, m01: cos, m02: sin, m10: 0.0f, m11: cos, m12: -sin, m20: -sin, m21 : sin, m22 : cos);
+						var matrix = new float3x3 (m00: 1.0f, m01: 0.0f, m02: 0.0f, m10: 0.0f, m11: cos, m12: -sin, m20 : 0.0f, m21 : sin, m22 : cos);
 						audienceData[cnt * elementCnt].Rotation = matrix;
 						cnt += 1;
 						// Debug.Log (cnt * elementCnt + " " + audienceData[cnt * elementCnt].Position);
