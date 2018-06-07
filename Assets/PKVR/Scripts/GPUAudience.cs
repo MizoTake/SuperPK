@@ -72,9 +72,9 @@ namespace SuperPK
 						sin = Mathf.Sin (seat.transform.rotation.y);
 						cos = Mathf.Cos (seat.transform.rotation.y);
 						var rotY = new float3x3 (m00: cos, m01: 1.0f, m02: sin, m10: 0.0f, m11: 0.0f, m12: 0.0f, m20: -sin, m21 : 0.0f, m22 : cos);
-						sin = Mathf.Sin (0.0f);
-						cos = Mathf.Cos (0.0f);
-						var rotZ = new float3x3 (m00: cos, m01: -sin, m02 : 0.0f, m10 : sin, m11 : cos, m12 : 0.0f, m20 : 0.0f, m21 : 0.0f, m22 : 0.0f);
+						// sin = Mathf.Sin (0.0f);
+						// cos = Mathf.Cos (0.0f);
+						// var rotZ = new float3x3 (m00: cos, m01: -sin, m02 : 0.0f, m10 : sin, m11 : cos, m12 : 0.0f, m20 : 0.0f, m21 : 0.0f, m22 : 0.0f);
 						audienceData[cnt * elementCnt].Rotation = math.mul (rotX, rotY);
 						cnt += 1;
 						// Debug.Log (cnt * elementCnt + " " + audienceData[cnt * elementCnt].Position);
