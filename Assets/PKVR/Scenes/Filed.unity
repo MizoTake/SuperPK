@@ -482,6 +482,7 @@ MonoBehaviour:
   - {fileID: 604506925}
   - {fileID: 1143787565}
   - {fileID: 1237530060}
+  lookTarget: {fileID: 1325172915}
 --- !u!114 &604506925 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
@@ -589,12 +590,17 @@ Prefab:
     - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
         type: 2}
       propertyPath: ScaleX
-      value: 45
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
         type: 2}
       propertyPath: StairsCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: instanceCount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71411690d5a8fed48aca824cb96c340e, type: 2}
@@ -646,12 +652,17 @@ Prefab:
     - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
         type: 2}
       propertyPath: ScaleX
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
         type: 2}
       propertyPath: StairsCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: instanceCount
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0a77f235e077249b8e962b62441021, type: 2}
@@ -922,12 +933,17 @@ Prefab:
     - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
         type: 2}
       propertyPath: ScaleX
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
         type: 2}
       propertyPath: StairsCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114254987829322146, guid: 8b0a77f235e077249b8e962b62441021,
+        type: 2}
+      propertyPath: instanceCount
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0a77f235e077249b8e962b62441021, type: 2}
@@ -985,12 +1001,17 @@ Prefab:
     - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
         type: 2}
       propertyPath: ScaleX
-      value: 45
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
         type: 2}
       propertyPath: StairsCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114706788928362176, guid: 71411690d5a8fed48aca824cb96c340e,
+        type: 2}
+      propertyPath: instanceCount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71411690d5a8fed48aca824cb96c340e, type: 2}
@@ -1001,6 +1022,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 751705877}
   m_Script: {fileID: 11500000, guid: 78074356fdef2d9478670e626233269b, type: 3}
+--- !u!4 &1325172915 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4037505689366638, guid: 018f4ec3ff75920469df0b97f7d9be59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078985356}
 --- !u!1 &1907087472
 GameObject:
   m_ObjectHideFlags: 0

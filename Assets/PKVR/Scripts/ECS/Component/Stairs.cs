@@ -12,6 +12,7 @@ namespace SuperPK
 		public Mesh SupporterMesh;
 		public Material SupporterMaterial;
 		public float ScaleX;
+		public float instanceCount;
 		public float OneSideWidth;
 		public float StairsCount;
 	}
