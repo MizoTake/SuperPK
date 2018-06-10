@@ -81,20 +81,9 @@ namespace SuperPK
 
 		void Update ()
 		{
-			int elementCnt = 1;
-			foreach (var seat in audienceSeat)
+			for (int i = 0; i < audienceData.Length; i++)
 			{
-				var stairsCount = seat.StairsCount;
-				int cnt = 0;
-				for (int i = 0; i < seat.instanceCount; i++)
-				{
-					for (int j = 0; j < stairsCount; j++)
-					{
-						audienceData[cnt * elementCnt].Position += Vector3.up * Mathf.Sin (Time.time * 10f) / 100f;
-						cnt += 1;
-					}
-				}
-				elementCnt += 1;
+				audienceData[i].Position += Vector3.up * Mathf.Sin (Time.time * 10f) / 100f;
 			}
 			audienceDataBuffer.SetData (audienceData);
 			mat.SetBuffer ("_AudienceDataBuffer", audienceDataBuffer);
