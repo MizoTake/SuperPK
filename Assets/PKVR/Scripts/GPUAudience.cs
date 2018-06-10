@@ -24,10 +24,11 @@ namespace SuperPK
 		ComputeBuffer audienceDataBuffer;
 		uint[] args = new uint[5] { 0, 0, 0, 0, 0 };
 		ComputeBuffer argsBuffer;
+		private int total = 0;
+		private AudienceData[] audienceData;
 
 		void Start ()
 		{
-			var total = 0;
 			foreach (var seat in audienceSeat)
 			{
 				total += (int) (seat.instanceCount * seat.StairsCount);
@@ -36,7 +37,7 @@ namespace SuperPK
 
 			audienceDataBuffer = new ComputeBuffer (total, Marshal.SizeOf (typeof (AudienceData)));
 			argsBuffer = new ComputeBuffer (1, args.Length * sizeof (uint), ComputeBufferType.IndirectArguments);
-			var audienceData = new AudienceData[total];
+			audienceData = new AudienceData[total];
 			int elementCnt = 1;
 
 			foreach (var seat in audienceSeat)
@@ -69,9 +70,7 @@ namespace SuperPK
 				}
 				elementCnt += 1;
 			}
-
 			audienceDataBuffer.SetData (audienceData);
-			audienceData = null;
 
 			args[0] = (mesh != null) ? mesh.GetIndexCount (0) : 0;
 			args[1] = (uint) total;
@@ -80,17 +79,29 @@ namespace SuperPK
 			mat.SetVector ("_AudienceMeshScale", Vector3.one * 5.0f);
 		}
 
-		/// <summary>
-		/// 毎フレーム更新
-		/// </summary>
 		void Update ()
 		{
-			Graphics.DrawMeshInstancedIndirect (mesh, 0, mat, new Bounds (Vector3.zero, Vector3.one * 300f), argsBuffer);
+			int elementCnt = 1;
+			foreach (var seat in audienceSeat)
+			{
+				var stairsCount = seat.StairsCount;
+				int cnt = 0;
+				for (int i = 0; i < seat.instanceCount; i++)
+				{
+					for (int j = 0; j < stairsCount; j++)
+					{
+						audienceData[cnt * elementCnt].Position += Vector3.up * Mathf.Sin (Time.time * 10f) / 100f;
+						cnt += 1;
+					}
+				}
+				elementCnt += 1;
+			}
+			audienceDataBuffer.SetData (audienceData);
+			mat.SetBuffer ("_AudienceDataBuffer", audienceDataBuffer);
+
+			Graphics.DrawMeshInstancedIndirect (mesh, 0, mat, new Bounds (Vector3.zero, Vector3.one * 100f), argsBuffer);
 		}
 
-		/// <summary>
-		/// 破棄
-		/// </summary>
 		void OnDestroy ()
 		{
 			if (audienceDataBuffer != null)
