@@ -18,7 +18,7 @@ public class DemoBall : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		var initPos = transform.position + Vector3.up;
+		var initPos = transform.position;
 		var initRot = transform.rotation;
 
 		Observable
@@ -34,6 +34,7 @@ public class DemoBall : MonoBehaviour
 			{
 				var randRotY = UniRandom.Range (-18f, 18f);
 				DOTween.Sequence ()
+					.AppendInterval (0.5f)
 					.Append (transform.DORotate (Vector3.up * randRotY, 0.0f, RotateMode.LocalAxisAdd))
 					.OnComplete (() => rigid.AddForce (transform.forward * power, ForceMode.Impulse))
 					.Play ();
