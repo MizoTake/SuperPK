@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
-using RanRange = UnityEngine.Random;
+using UniRandom = UnityEngine.Random;
 using System.Threading.Tasks;
 using DG.Tweening;
 
@@ -39,9 +39,11 @@ public class DemoBall : MonoBehaviour
 
 	private async Task Shoot ()
 	{
-		var randRotY = RanRange.Range (-50f, 50f);
-		transform.DORotate (Vector3.up * randRotY, 0.0f, RotateMode.LocalAxisAdd).Play ();
-		rigid.AddForce (transform.forward * power, ForceMode.Impulse);
+		var randRotY = UniRandom.Range (-18f, 18f);
+		DOTween.Sequence ()
+			.Append (transform.DORotate (Vector3.up * randRotY, 0.0f, RotateMode.LocalAxisAdd))
+			.OnComplete (() => rigid.AddForce (transform.forward * power, ForceMode.Impulse))
+			.Play ();
 		await Task.Delay (TimeSpan.FromSeconds (3.0f));
 	}
 }
