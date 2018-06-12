@@ -22,7 +22,7 @@ public class DemoBall : MonoBehaviour
 		var initRot = transform.rotation;
 
 		Observable
-			.Timer (TimeSpan.FromSeconds (3))
+			.Timer (TimeSpan.FromSeconds (5))
 			.Do (_ =>
 			{
 				transform.position = initPos;
@@ -30,20 +30,14 @@ public class DemoBall : MonoBehaviour
 				rigid.velocity = Vector3.zero;
 			})
 			.Repeat ()
-			.Subscribe (async _ =>
+			.Subscribe (_ =>
 			{
-				await Shoot ();
+				var randRotY = UniRandom.Range (-18f, 18f);
+				DOTween.Sequence ()
+					.Append (transform.DORotate (Vector3.up * randRotY, 0.0f, RotateMode.LocalAxisAdd))
+					.OnComplete (() => rigid.AddForce (transform.forward * power, ForceMode.Impulse))
+					.Play ();
 			})
 			.AddTo (this);
-	}
-
-	private async Task Shoot ()
-	{
-		var randRotY = UniRandom.Range (-18f, 18f);
-		DOTween.Sequence ()
-			.Append (transform.DORotate (Vector3.up * randRotY, 0.0f, RotateMode.LocalAxisAdd))
-			.OnComplete (() => rigid.AddForce (transform.forward * power, ForceMode.Impulse))
-			.Play ();
-		await Task.Delay (TimeSpan.FromSeconds (3.0f));
 	}
 }
