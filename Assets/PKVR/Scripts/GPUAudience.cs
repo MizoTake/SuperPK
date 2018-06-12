@@ -76,7 +76,7 @@ namespace SuperPK
 			args[1] = (uint) total;
 			argsBuffer.SetData (args);
 			mat.SetBuffer ("_AudienceDataBuffer", audienceDataBuffer);
-			mat.SetVector ("_AudienceMeshScale", Vector3.one * 5.0f);
+			mat.SetVector ("_AudienceMeshScale", Vector3.one * 3.8f);
 		}
 
 		void Update ()
