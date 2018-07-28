@@ -309,6 +309,9 @@ public class OVROverlay : MonoBehaviour
 		}
 
 		layerDesc = new OVRPlugin.LayerDesc();
+
+		frameIndex = 0;
+		prevFrameIndex = -1;
 	}
 
 	private bool LatchLayerTextures()
@@ -319,6 +322,15 @@ public class OVROverlay : MonoBehaviour
 			{
 				if (textures[i] != null)
 				{
+#if UNITY_EDITOR
+					var assetPath = UnityEditor.AssetDatabase.GetAssetPath(textures[i]);
+					var importer = (UnityEditor.TextureImporter)UnityEditor.TextureImporter.GetAtPath(assetPath);
+					if (importer && importer.textureType != UnityEditor.TextureImporterType.Default)
+					{
+						Debug.LogError("Need Default Texture Type for overlay");
+						return false;
+					}
+#endif
 					var rt = textures[i] as RenderTexture;
 					if (rt && !rt.IsCreated())
 						rt.Create();
@@ -436,10 +448,10 @@ public class OVROverlay : MonoBehaviour
 
 				tempRTDst.DiscardContents();
 
-				var rt = textures[eyeId] as RenderTexture;
 				bool dataIsLinear = isHdr || (QualitySettings.activeColorSpace == ColorSpace.Linear);
 
 #if !UNITY_2017_1_OR_NEWER
+				var rt = textures[eyeId] as RenderTexture;
 				dataIsLinear |= rt != null && rt.sRGB; //HACK: Unity 5.6 and earlier convert to linear on read from sRGB RenderTexture.
 #endif
 #if UNITY_ANDROID && !UNITY_EDITOR
