@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UniRx;
+using UniRx.Triggers;
 
 public class Hand : MonoBehaviour
 {
