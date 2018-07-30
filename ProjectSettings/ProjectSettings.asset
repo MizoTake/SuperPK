@@ -153,6 +153,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.italangmong.PKVR
     Standalone: com.oculus.UnitySample
+    iOS: com.oculus.UnitySample
+    tvOS: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 25
@@ -390,6 +392,12 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - Oculus
+  - m_BuildTarget: iOS
+    m_Enabled: 1
+    m_Devices: []
+  - m_BuildTarget: tvOS
+    m_Enabled: 1
+    m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 1
   openGLRequireES31AEP: 1
