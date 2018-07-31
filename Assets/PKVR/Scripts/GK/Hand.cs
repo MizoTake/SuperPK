@@ -6,43 +6,14 @@ using UniRx.Triggers;
 using UnityEngine;
 using Zenject;
 
-// [RequireComponent (typeof (Rigidbody))]
-public class Hand : MonoBehaviour
+namespace PKVR
 {
-    [Inject]
-    private InputGoController _controller;
-
-    private Vector3 _nextPos;
-    private Rigidbody _rigid;
-
-    // Use this for initialization
-    void Start ()
+    public class Hand : HandAbstract
     {
-        // _rigid = GetComponent<Rigidbody> ();
+        [Inject]
+        private InputGoController _controller;
 
-        Bind ();
-    }
-
-    protected void Bind ()
-    {
-        var vec = Vector3.forward;
-        var target = Vector3.zero;
-        _controller.ovrTouchpad
-            .Subscribe (_ =>
-            {
-                target = transform.forward * Mathf.Clamp (target.z + _, transform.parent.localPosition.z, target.z + _);
-                var value = (Mathf.Clamp (transform.position.z + _, transform.parent.position.z, transform.position.z + _) == transform.parent.position.z) ? 0f : _;
-                transform.Translate (vec * value);
-                // transform.forward = transform.parent.forward;
-                // _nextPos = transform.parent.position + target;
-            })
-            .AddTo (this);
-
-        this.FixedUpdateAsObservable ()
-            .Subscribe (_ =>
-            {
-                // _rigid.MovePosition (_nextPos);
-            })
-            .AddTo (this);
+        // Use this for initialization
+        void Start () => HandBind (_controller.ovrTouchpad);
     }
 }
