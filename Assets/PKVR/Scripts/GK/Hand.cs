@@ -14,6 +14,6 @@ namespace PKVR
         private InputGoController _controller;
 
         // Use this for initialization
-        void Start () => HandBind (_controller.ovrTouchpad);
+        void Start () => base.HandBind (_controller.ovrTouchpad);
     }
 }
