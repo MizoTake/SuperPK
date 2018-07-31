@@ -42,7 +42,7 @@ namespace PKVR
         }
 
         /// <summary>
-        /// 270 ~ 360を -45 = 0　でとるための判定
+        /// 270 ~ 360を -45 ~ 0　でとるための判定
         /// </summary>
         /// <param name="handRotY">チェック対象</param>
         /// <returns></returns>
