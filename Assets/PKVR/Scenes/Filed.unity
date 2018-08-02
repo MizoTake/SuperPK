@@ -422,7 +422,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1956530202777762, guid: d9809c5e8418bb047bf2c8ba1d1a2cec,
     type: 2}
   m_PrefabInternal: {fileID: 17045250}
---- !u!114 &217976985
+--- !u!114 &217976988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 0}
+  - {fileID: 217976988}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}

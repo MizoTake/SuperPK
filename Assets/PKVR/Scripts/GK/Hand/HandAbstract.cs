@@ -28,7 +28,7 @@ namespace PKVR
 				{
 					var speed = (_) ? _speed : -_speed;
 					var value = (Mathf.Clamp (transform.position.z + speed, _controller.transform.position.z, transform.position.z + speed) == _controller.transform.position.z) ? 0f : speed;
-					lerpValue += speed;
+					lerpValue += speed * 3f;
 					next = Vector3.Lerp (_controller.transform.position, transform.position + _controller.transform.forward * value, Mathf.Clamp01 (lerpValue));
 				})
 				.AddTo (this);
