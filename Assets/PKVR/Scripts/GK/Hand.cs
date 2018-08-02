@@ -10,10 +10,8 @@ namespace PKVR
 {
     public class Hand : HandAbstract
     {
-        [Inject]
-        private InputGoController _controller;
 
         // Use this for initialization
-        void Start () => base.HandBind (_controller.ovrTouchpad);
+        void Start () => base.HandBind ();
     }
 }

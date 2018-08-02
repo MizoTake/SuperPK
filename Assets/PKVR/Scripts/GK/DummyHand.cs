@@ -10,8 +10,6 @@ namespace PKVR
 {
     public class DummyHand : HandAbstract
     {
-        [Inject]
-        private InputGoController _controller;
 
         [SerializeField]
         private Hand _hand;
@@ -23,7 +21,7 @@ namespace PKVR
 
         private void Bind ()
         {
-            base.HandBind (_controller.ovrTouchpad);
+            base.HandBind ();
 
             var range = transform.localScale.x;
             this.UpdateAsObservable ()
